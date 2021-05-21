@@ -2,11 +2,13 @@
 
 namespace DownloadMp3
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var mp3Download = new Mp3Download();
+            mp3Download.ProcessDownload();
+            Console.Read();
         }
     }
 }
