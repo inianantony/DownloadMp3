@@ -31,7 +31,7 @@ namespace DownloadMp3
                 records = records.OrderBy(a => a.Mp3Name);
                 foreach (var mp3Info in records)
                 {
-                    var movieName = mp3Info.MovieName.Replace("(2020)", "").Trim();
+                    var movieName = mp3Info.MovieName.Replace("(2021)", "").Trim();
                     var strings = mp3Info.Mp3Link.Split('/');
                     var decode = HttpUtility.UrlDecode(strings[^1]) ?? string.Empty;
                     var mp3Name = decode.Replace(" - Masstamilan.In", "");
