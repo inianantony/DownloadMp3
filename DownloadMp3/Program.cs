@@ -8,6 +8,7 @@ namespace DownloadMp3
         {
             var mp3Download = new Mp3Download();
             mp3Download.ProcessDownload();
+            Console.WriteLine("Download is Completed!");
             Console.Read();
         }
     }

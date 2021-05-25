@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using CsvHelper;
 using CsvHelper.Configuration;
 
@@ -22,7 +23,7 @@ namespace DownloadMp3
                 PrepareHeaderForMatch = args => args.Header.ToLower(),
             };
             var linksList = new Dictionary<string, Dictionary<string, string>>();
-            using (var stream = File.OpenRead("2020Mp3.csv"))
+            using (var stream = File.OpenRead("2021.csv"))
             {
                 using var reader = new StreamReader(stream);
                 using var csv = new CsvReader(reader, csvConfiguration);
@@ -32,10 +33,10 @@ namespace DownloadMp3
                 {
                     var movieName = mp3Info.MovieName.Replace("(2020)", "").Trim();
                     var strings = mp3Info.Mp3Link.Split('/');
-                    var replace = strings[^1].Replace("%20", "");
-                    var mp3Name = replace.Replace("-TamilTunes.com", "");
+                    var decode = HttpUtility.UrlDecode(strings[^1]) ?? string.Empty;
+                    var mp3Name = decode.Replace(" - Masstamilan.In", "");
 
-                    var downloadedMovie = @"D:\Music\Music\Movie\2019 Hits Check\FOLDERS\" + movieName;
+                    var downloadedMovie = @"D:\Music\Music\Movie\2020 Hits\FOLDERS\" + movieName;
                     if (Directory.Exists(downloadedMovie))
                         continue;
                     if (!linksList.ContainsKey(movieName))
