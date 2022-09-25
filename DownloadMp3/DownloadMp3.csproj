@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AngleSharp" Version="0.17.1" />
     <PackageReference Include="CsvHelper" Version="27.0.4" />
+    <PackageReference Include="RestSharp" Version="108.0.2" />
   </ItemGroup>
 
 </Project>
