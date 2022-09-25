@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace DownloadMp3
 {
@@ -16,10 +14,9 @@ namespace DownloadMp3
                 var tamilmp3FreeDownload = new Tamilmp3FreeDownload();
                 await tamilmp3FreeDownload.ProcessDownloadAsync();
             }
-            
 
-
-
+            IsaiminisongDownload isaiminisongDownload = new IsaiminisongDownload();
+            await isaiminisongDownload.ProcessDownloadAsync();
 
             Console.WriteLine("Download is Completed!");
             Console.Read();
